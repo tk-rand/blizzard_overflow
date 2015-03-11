@@ -2,33 +2,19 @@ var apiUrl = "https://api.stackexchange.com/2.2";
 
 $(document).ready(function() {
     //get profile information
-    $.ajax({
-        url : apiUrl + '/me?',
-        data : {
-            'access_token' : sessionStorage.getItem('accessToken'),
-            'site' : 'stackoverflow',
-            'key' : sessionStorage.getItem('key')
-        },
-        success : function(data) {
-            console.log(data);
-            setProfileInformation(data.items[0]);
-        },
-        error : function(data) {
-            alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
-        }
-    });
-    
+    useProfileApi('?', setProfileInformation);
+  
     //get badge information
     //var badgeInfo = parseBadgeInformation();
-    useProfileApi('badges?', parseBadgeInformation);
+    useProfileApi('/badges?', parseBadgeInformation);
      
     //get info on users tags
     //var tagsInfo = setTagInformation();
-    useProfileApi('tags?',setTagInformation);
+    useProfileApi('/tags?',setTagInformation);
       
     //get info on users favorite quetions
     //var favoriteInfo = parseFavoritesInformation();
-    useProfileApi('favorites?', parseFavoritesInformation);
+    useProfileApi('/favorites?', parseFavoritesInformation);
        
     //get the information needed to create a timeline of users rep gains and activity
     var reputationInfo = useProfileApi('reputation?');
@@ -39,20 +25,41 @@ $(document).ready(function() {
 });
 
 function useProfileApi(call, callback) {
-    $.ajax({
-        url : apiUrl + '/me/' + call,
-        data : {
-            'access_token' : sessionStorage.getItem('accessToken'),
-            'site' : 'stackoverflow',
-            'key' : sessionStorage.getItem('key')
-        }
-    }).done(function(data){
-        if(data.items !== undefined || data.error_id == undefined){
-            callback(data);
-        }else{
-            alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
-        }
-    });
+    if (callback !== undefined) {
+        $.ajax({
+            url : apiUrl + '/me' + call,
+            data : {
+                'access_token' : sessionStorage.getItem('accessToken'),
+                'site' : 'stackoverflow',
+                'key' : sessionStorage.getItem('key')
+            }
+        }).done(function(data) {
+            if (data.items !== undefined || data.error_id == undefined) {
+                callback(data);
+            } else {
+                alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
+            }
+        });
+    } else { //This is for last 3 calls since all 3 need to be made for that component to be made. turns async off and shows a spinner in place of component till finished.
+        $.ajax({
+            url : apiUrl + '/me' + call,
+            data : {
+                'access_token' : sessionStorage.getItem('accessToken'),
+                'site' : 'stackoverflow',
+                'key' : sessionStorage.getItem('key')
+            },
+            beforeSend: function(){
+                //TODO load spinner in timeline area
+            },
+            async: false
+        }).done(function(data) {
+            if (data.items !== undefined || data.error_id == undefined) {
+                return data;
+            } else {
+                alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
+            }
+        });
+    }
 }
 
 function createTimeline(repInfo, responses, timelineInfo){
@@ -78,7 +85,8 @@ function parseBadgeInformation(data){
     }
 }
 
-function setProfileInformation(profile) {
+function setProfileInformation(data) {
+    var profile = data.items[0];
     //save for later use on the search and question page
     sessionStorage.setItem('user-profile', profile);
 
@@ -88,7 +96,7 @@ function setProfileInformation(profile) {
     $('#website').text(profile.website);
     $('#accept-rate').text(profile.accept_rate);
     $('#member-for').text(
-        moment.unix(profile.creation_date, 'YYYYMMDD')
+        moment.unix(profile.creation_date, 'YYYY-MM-DD')
     );
     $('#bronze-badge-count').text(profile.badge_counts.bronze);
     $('#silver-badge-count').text(profile.badge_counts.silver);
