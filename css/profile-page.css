@@ -4,6 +4,6 @@ body{
 
 .welcome-bar{
 	  color: #8694a1;
-	  background: url("../images/service-bar/background.4R6M8.png") repeat-x 0 -200px;
+	  background-color: #00000f;
 	  float: left;
 }
