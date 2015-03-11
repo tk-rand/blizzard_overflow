@@ -4,7 +4,7 @@ $(document).ready(function() {
         key : '2FgrF56*JKZBJ43DniQc7A((',
         channelUrl : 'http://tk-rand.github.io/blank.html',
         complete : function(data) {
-            console.log(data);
+            sessionStorage.setItem('key', '2FgrF56*JKZBJ43DniQc7A((');
         }
     });
 
