@@ -19,23 +19,26 @@ $(document).ready(function() {
     });
     
     //get badge information
-    var badgeInfo = useProfileApi('badges?'); 
+    var badgeInfo = parseBadgeInformation();
+    useProfileApi('badges?', badgeInfo);
+     
     //get info on users tags
-    var tagsInfo = useProfileApi('tags?');  
+    var tagsInfo = setTagInformation();
+    useProfileApi('tags?',tagsInfo);
+      
     //get info on users favorite quetions
-    var favoriteInfo = useProfileApi('favorites?');   
+    var favoriteInfo = parseFavoritesInformation();
+    useProfileApi('favorites?', favoriteInfo);
+       
     //get the information needed to create a timeline of users rep gains and activity
     var reputationInfo = useProfileApi('reputation?');
     var mentionedInfo = useProfileApi('mentioned?');
     var timelineInfo = useProfileApi('timeline?');
     
-    parseBadgeInformation(badgeInfo);
-    setTagInformation(tagsInfo);
-    parseFavoritesInformation(favoriteInfo);
     createTimeline(reputationInfo, mentionedInfo, timelineInfo);
 });
 
-function useProfileApi(call) {
+function useProfileApi(call, callback) {
     $.ajax({
         url : apiUrl + '/me/' + call,
         data : {
@@ -44,8 +47,8 @@ function useProfileApi(call) {
             'key' : sessionStorage.getItem('key')
         }
     }).done(function(data){
-        if(data.items !== undefined || data.items !== ''){
-            return data;
+        if(data.items !== undefined || data.error_id == undefined){
+            callback(data);
         }else{
             alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
         }
