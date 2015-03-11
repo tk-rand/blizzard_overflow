@@ -7,9 +7,15 @@ $(document).ready(function(){
        data: {'access_token': sessionStorage.getItem('accessToken'),
               'site': 'stackoverflow',
               'key': sessionStorage.getItem('key')
-            },
+             },
        success: function(data){
            console.log(data);
+           setProfileInformation(data.items[0]);
        }
    }); 
 });
+
+function setProfileInformation(profile){
+    $('#user-name').text(profile.display_name);
+    $('#user-rep').text(profile.reputation);
+}
