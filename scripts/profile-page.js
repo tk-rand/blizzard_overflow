@@ -19,16 +19,16 @@ $(document).ready(function() {
     });
     
     //get badge information
-    var badgeInfo = parseBadgeInformation();
-    useProfileApi('badges?', badgeInfo);
+    //var badgeInfo = parseBadgeInformation();
+    useProfileApi('badges?', parseBadgeInformation);
      
     //get info on users tags
-    var tagsInfo = setTagInformation();
-    useProfileApi('tags?',tagsInfo);
+    //var tagsInfo = setTagInformation();
+    useProfileApi('tags?',setTagInformation);
       
     //get info on users favorite quetions
-    var favoriteInfo = parseFavoritesInformation();
-    useProfileApi('favorites?', favoriteInfo);
+    //var favoriteInfo = parseFavoritesInformation();
+    useProfileApi('favorites?', parseFavoritesInformation);
        
     //get the information needed to create a timeline of users rep gains and activity
     var reputationInfo = useProfileApi('reputation?');
