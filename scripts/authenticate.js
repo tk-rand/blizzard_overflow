@@ -2,7 +2,7 @@ $(document).ready(function() {
     SE.init({
         clientId : 4422,
         key : '2FgrF56*JKZBJ43DniQc7A((',
-        channelUrl : 'tk-rand.github.io/blizzard_overflow/blank.html',
+        channelUrl : 'http://tk-rand.github.io/blizzard_overflow/blank.html',
         complete : function(data) {
             console.log(data);
         }
