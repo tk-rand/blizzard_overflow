@@ -34,11 +34,9 @@ function useProfileApi(call, callback) {
                 'key' : sessionStorage.getItem('key')
             }
         }).done(function(data) {
-            if (data.items !== undefined || data.error_id == undefined) {
-                callback(data);
-            } else {
-                alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
-            }
+            callback(data);
+        }).fail(function(data){
+            alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
         });
     } else { //This is for last 3 calls since all 3 need to be made for that component to be made. turns async off and shows a spinner in place of component till finished.
         $.ajax({
@@ -53,12 +51,10 @@ function useProfileApi(call, callback) {
             },
             async: false
         }).done(function(data) {
-            if (data.items !== undefined || data.error_id == undefined) {
-                return data;
-            } else {
-                alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
-            }
-        });
+            return data;
+        }).fail(function(data){
+            alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
+        });;
     }
 }
 
@@ -80,7 +76,13 @@ function parseBadgeInformation(data){
         $(".badges").append(display);    
     };
     
-    for(var i = 0; i < data.items.length; i++){
+    if(data.items.length > 10){
+        var length = 10;
+    }else{
+        var length = data.items.length;
+    }
+    
+    for(var i = 0; i < length; i++){
         this.createBadge(data.items[i].award_count, data.items[i].name, data.items[i].rank, data.items[i].link);
     }
 }
@@ -96,7 +98,7 @@ function setProfileInformation(data) {
     $('#website').text(profile.website);
     $('#accept-rate').text(profile.accept_rate);
     $('#member-for').text(
-        moment.unix(profile.creation_date, 'YYYY-MM-DD')
+        moment(moment.unix(profile.creation_date), 'YYYY-MM-DD')
     );
     $('#bronze-badge-count').text(profile.badge_counts.bronze);
     $('#silver-badge-count').text(profile.badge_counts.silver);
