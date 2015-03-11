@@ -12,7 +12,8 @@ $(document).ready(function() {
         SE.authenticate({
             success : function(data) {
                 sessionStorage.setItem('accessToken', data.accessToken);
-                sessionStorage.setItem('experationDate', data.experationDate);
+                sessionStorage.setItem('experationDate', data.expirationDate);
+                window.location = "http://tk-rand.github.io/profile-page.html";
             },
             scope : ['write_access', 'private_info'],
             error : function(data) {
