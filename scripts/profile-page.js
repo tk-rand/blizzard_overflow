@@ -19,21 +19,19 @@ $(document).ready(function() {
     });
     
     //get badge information
-    var badgeInfo = useProfileApi('badges?');
-    parseBadgeInformation(badgeInfo);
-    
+    var badgeInfo = useProfileApi('badges?'); 
     //get info on users tags
-    var tagsInfo = useProfileApi('tags?');
-    setTagInformation(tagsInfo);
-    
+    var tagsInfo = useProfileApi('tags?');  
     //get info on users favorite quetions
-    var favoriteInfo = useProfileApi('favorites?');
-    parseFavoritesInformation(favoriteInfo);
-    
+    var favoriteInfo = useProfileApi('favorites?');   
     //get the information needed to create a timeline of users rep gains and activity
     var reputationInfo = useProfileApi('reputation?');
     var mentionedInfo = useProfileApi('mentioned?');
     var timelineInfo = useProfileApi('timeline?');
+    
+    parseBadgeInformation(badgeInfo);
+    setTagInformation(tagsInfo);
+    parseFavoritesInformation(favoriteInfo);
     createTimeline(reputationInfo, mentionedInfo, timelineInfo);
 });
 
@@ -44,12 +42,11 @@ function useProfileApi(call) {
             'access_token' : sessionStorage.getItem('accessToken'),
             'site' : 'stackoverflow',
             'key' : sessionStorage.getItem('key')
-        },
-        success : function(data){
-            console.log(data);
+        }
+    }).done(function(data){
+        if(data.items !== undefined || data.items !== ''){
             return data;
-        },    
-        error : function(data) {
+        }else{
             alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
         }
     });
@@ -88,7 +85,7 @@ function setProfileInformation(profile) {
     $('#website').text(profile.website);
     $('#accept-rate').text(profile.accept_rate);
     $('#member-for').text(
-        moment(profile.creation_date, 'YYYYMMDD')
+        moment.unix(profile.creation_date, 'YYYYMMDD')
     );
     $('#bronze-badge-count').text(profile.badge_counts.bronze);
     $('#silver-badge-count').text(profile.badge_counts.silver);
