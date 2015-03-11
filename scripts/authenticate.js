@@ -13,7 +13,7 @@ $(document).ready(function() {
             success : function(data) {
                 sessionStorage.setItem('accessToken', data.accessToken);
                 sessionStorage.setItem('experationDate', data.expirationDate);
-                window.location = "http://tk-rand.github.io/profile-page.html";
+                window.location = "http://tk-rand.github.io/blizzard_overflow/profile-page.html";
             },
             scope : ['write_access', 'private_info'],
             error : function(data) {
