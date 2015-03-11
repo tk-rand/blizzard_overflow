@@ -16,6 +16,10 @@ $(document).ready(function(){
 });
 
 function setProfileInformation(profile){
+    //save for later use on the search and question page
+    sessionStorage.setItem('user-profile', profile);
+    
     $('#user-name').text(profile.display_name);
     $('#user-rep').text(profile.reputation);
+    $('#profile-image').attr('src', profile.profile_image);
 }
