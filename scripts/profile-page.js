@@ -17,9 +17,9 @@ $(document).ready(function() {
     useProfileApi('/favorites?', parseFavoritesInformation);
        
     //get the information needed to create a timeline of users rep gains and activity
-    var reputationInfo = useProfileApi('reputation?');
-    var mentionedInfo = useProfileApi('mentioned?');
-    var timelineInfo = useProfileApi('timeline?');
+    var reputationInfo = useProfileApi('/reputation?');
+    var mentionedInfo = useProfileApi('/mentioned?');
+    var timelineInfo = useProfileApi('/timeline?');
     
     createTimeline(reputationInfo, mentionedInfo, timelineInfo);
 });
