@@ -35,25 +35,7 @@ $(document).ready(function() {
     var mentionedInfo = useProfileApi('mentioned?');
     var timelineInfo = useProfileApi('timeline?');
     createTimeline(reputationInfo, mentionedInfo, timelineInfo);
-
 });
-
-function setProfileInformation(profile) {
-    //save for later use on the search and question page
-    sessionStorage.setItem('user-profile', profile);
-
-    $('#user-name').text(profile.display_name);
-    $('#user-rep').text(profile.reputation);
-    $('#profile-image').attr('src', profile.profile_image);
-    $('#website').text(profile.website);
-    $('#accept-rate').text(profile.accept_rate);
-    $('#member-for').text(
-        moment(profile.creation_date, 'YYYYMMDD').fromNow()
-    );
-    $('#bronze-badge-count').text(profile.badge_counts.bronze);
-    $('#silver-badge-count').text(profile.badge_counts.silver);
-    $('#gold-badge-count').text(profile.badge_counts.gold);
-}
 
 function useProfileApi(call) {
     $.ajax({
@@ -72,3 +54,45 @@ function useProfileApi(call) {
         }
     });
 }
+
+function createTimeline(repInfo, responses, timelineInfo){
+    
+}
+
+function parseFavoritesInformation(data){
+    
+}
+
+function setTagInformation(data){
+    
+}
+
+function parseBadgeInformation(data){
+    this.createBadge = function(count, name, rank, link){
+        var display = "<div class='badge-container'><span>"+ count + " x </span><a href='"+ link +"'> <div class='"+ rank +"-badge'>"+ name + "</div></a>";
+        $(".badges").append(display);    
+    };
+    
+    for(var i = 0; i < data.items.length; i++){
+        this.createBadge(data.items[i].award_count, data.items[i].name, data.items[i].rank, data.items[i].link);
+    }
+}
+
+function setProfileInformation(profile) {
+    //save for later use on the search and question page
+    sessionStorage.setItem('user-profile', profile);
+
+    $('#user-name').text(profile.display_name);
+    $('#user-rep').text(profile.reputation);
+    $('#profile-image').attr('src', profile.profile_image);
+    $('#website').text(profile.website);
+    $('#accept-rate').text(profile.accept_rate);
+    $('#member-for').text(
+        moment(profile.creation_date, 'YYYYMMDD')
+    );
+    $('#bronze-badge-count').text(profile.badge_counts.bronze);
+    $('#silver-badge-count').text(profile.badge_counts.silver);
+    $('#gold-badge-count').text(profile.badge_counts.gold);
+}
+
+
