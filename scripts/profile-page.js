@@ -57,7 +57,7 @@ function useProfileApi(call, callback) {
 }
 
 function createTimeline(repInfo, responses, timelineInfo) {
-
+    console.log(repInfo, responses, timelineInfo);
 }
 
 function parseFavoritesInformation(data) {
