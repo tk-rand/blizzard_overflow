@@ -73,7 +73,7 @@ function parseFavoritesInformation(data) {
     
     this.createFavoriteTag = function(tag, questionId){
         var display = "<div class='favorites-tag'>"+tag+"</div>";
-        $("#"+ questionId +" > .favorites-tag-container").append(display);
+        $("#"+ questionId +" > .favorite-tag-container").append(display);
     };
     
     for(var i = 0; i < data.items.length; i++){
