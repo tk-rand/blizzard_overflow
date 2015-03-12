@@ -104,8 +104,9 @@ function parseBadgeInformation(data) {
         $(".badges").append(display);
     };
 
-    if (data.items.length > 10) {
-        var length = 10;
+    //right now 9 fits pretty in my design, I might change later
+    if (data.items.length > 9) {
+        var length = 9;
     } else {
         var length = data.items.length;
     }
