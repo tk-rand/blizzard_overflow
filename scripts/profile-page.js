@@ -62,7 +62,7 @@ function createTimeline(repInfo, responses, timelineInfo) {
 
 function parseFavoritesInformation(data) {
     var self = this;
-    this.createFavorite = function(title, tags, questionId, link){
+    this.createFavorites = function(title, tags, questionId, link){
         var display = "<div class='favorite-question' id="+ questionId +"><h3>"+ title +"</h3><div class='favorite-tag-container'></div></div>" ;    
         $('.favorites').append(display);
         
