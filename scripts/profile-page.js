@@ -1,4 +1,4 @@
-var apiUrl = "https://api.stackexchange.com/2.2";
+var apiUrl = "https://api.stackexchange.com/2.2/me";
 
 $(document).ready(function() {
     //get profile information
@@ -17,14 +17,25 @@ $(document).ready(function() {
     var reputationInfo = useProfileApi('/reputation?');
     var mentionedInfo = useProfileApi('/mentioned?');
     var timelineInfo = useProfileApi('/timeline?');
-
-    createTimeline(reputationInfo, mentionedInfo, timelineInfo);
+    
+    //this is janky, but async = false isn't doing what it should be doing so, here be jank.
+    if(timelineInfo !== undefined){
+        createTimeline(reputationInfo, mentionedInfo, timelineInfo);
+    }else{
+        var interval = window.setInterval(function(){
+            if(timelineInfo !== undefined){
+                createTimeline(reputationInfo, mentionedInfo, timelineInfo);
+                window.clearInterval(interval);
+            }
+        }, 500);
+    }
+    
 });
 
 function useProfileApi(call, callback) {
     if (callback !== undefined) {
         $.ajax({
-            url : apiUrl + '/me' + call,
+            url : apiUrl + call,
             data : {
                 'access_token' : sessionStorage.getItem('accessToken'),
                 'site' : 'stackoverflow',
@@ -37,7 +48,7 @@ function useProfileApi(call, callback) {
         });
     } else {//This is for last 3 calls since all 3 need to be made for that component to be made. turns async off and shows a spinner in place of component till finished.
         $.ajax({
-            url : apiUrl + '/me' + call,
+            url : apiUrl + call,
             data : {
                 'access_token' : sessionStorage.getItem('accessToken'),
                 'site' : 'stackoverflow',
