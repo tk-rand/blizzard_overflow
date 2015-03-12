@@ -61,7 +61,24 @@ function createTimeline(repInfo, responses, timelineInfo) {
 }
 
 function parseFavoritesInformation(data) {
-
+    var self = this;
+    this.createFavorite = function(title, tags, questionId, link){
+        var display = "<div class='favorite-question' id="+ questionId +"><h3>"+ title +"</h3><div class='favorite-tag-container'></div></div> ;    
+        $('.favorites').append(display);
+        
+        for(var i = 0; i < tags.length; i++){
+            self.createFavoriteTag(tags[i], questionId);
+        }    
+    };
+    
+    this.createFavoriteTag = function(tag, questionId){
+        var display = "<div class='favorites-tag'>"+tag+"</div>";
+        $("#"+ questionId +" > .favorites-tag-container").append(display);
+    };
+    
+    for(var i = 0; i < data.items.length; i++){
+        this.createFavorites(data.items[i].title, data.items[i].tags, data.items[i].question_id, data.items[i].link);
+    }
 }
 
 function setTagInformation(data) {
