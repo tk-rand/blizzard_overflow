@@ -76,4 +76,26 @@ body {
 	width: 50%;
 	float: left;
 }
+.tag-container {
+	width: 240px;
+	height: 49px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.07);
+	font-size: 19px;
+	line-height: 40px;
+	text-align: center;
+	background-color: rgba(255,255,255,0.02);
+}
+
+.tag-container a {
+	text-decoration: none;
+	color: white;
+	margin-top: 20px;
+}
+.tag-container a:hover{
+	  background-color: rgba(0,174,255,0.7);
+}
+
+
+
 
