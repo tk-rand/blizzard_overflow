@@ -56,8 +56,7 @@ function useProfileApi(call, callback) {
             },
             beforeSend : function() {
                 //TODO load spinner in timeline area
-            },
-            async : false
+            }
         }).done(function(data) {
             return data;
         }).fail(function(data) {
