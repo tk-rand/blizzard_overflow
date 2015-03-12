@@ -107,6 +107,10 @@
   	color: #00aeff;
 }
 
+.favorite-question h3{
+	margin: 0 10px;
+}
+
 .favorites-tag {
 	background-color: #19547c;
 	width: 42%;
