@@ -25,12 +25,18 @@ body {
 	width: 150px;
 	display: inline-block;
 	color: #00aeff;
-	background-color: #19547c;
+	background-color: rgba(39,56,76,0.9)
 	border: 1px solid #19547c;
 	text-align: center;
 	border-radius: 4px;
 	margin: 4px;
 }
+
+.badge-container:hover{
+	background-color: rgba(255,255,255,0.05);
+	color: #FFFFFF;
+}
+
 .badge-container a {
 	display: inline-block;
 	text-decoration: none;
