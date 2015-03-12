@@ -14,11 +14,17 @@ $(document).ready(function() {
     useProfileApi('/favorites?', parseFavoritesInformation);
 
     //get the information needed to create a timeline of users rep gains and activity
-     reputationInfo = useProfileApi('/reputation?');
-     mentionedInfo = useProfileApi('/mentioned?');
-     timelineInfo = useProfileApi('/timeline?');
-    
-    
+     useProfileApi('/reputation?').then(function(data){
+         var reputationInfo = data;
+         useProfileApi('/mentioned?').then(function(data){
+            var mentionedInfo = data;
+            useProfileApi('/timeline?').then(function(data){
+                var timelineInfo = data;
+                createTimeline(reputationInfo, mentionedInfo, timelineInfo);
+            });
+         });
+     });
+ 
 });
 
 function useProfileApi(call, callback) {
@@ -46,10 +52,6 @@ function useProfileApi(call, callback) {
             beforeSend : function() {
                 //TODO load spinner in timeline area
             }
-        }).done(function(data) {
-            return data;
-        }).fail(function(data) {
-            alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
         });
     }
 }
