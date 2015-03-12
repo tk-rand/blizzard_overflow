@@ -14,21 +14,10 @@ $(document).ready(function() {
     useProfileApi('/favorites?', parseFavoritesInformation);
 
     //get the information needed to create a timeline of users rep gains and activity
-    var reputationInfo = useProfileApi('/reputation?');
-    var mentionedInfo = useProfileApi('/mentioned?');
-    var timelineInfo = useProfileApi('/timeline?');
+     reputationInfo = useProfileApi('/reputation?');
+     mentionedInfo = useProfileApi('/mentioned?');
+     timelineInfo = useProfileApi('/timeline?');
     
-    //this is janky, but async = false isn't doing what it should be doing so, here be jank.
-    if(timelineInfo !== undefined){
-        createTimeline(reputationInfo, mentionedInfo, timelineInfo);
-    }else{
-        var interval = window.setInterval(function(){
-            if(timelineInfo !== undefined){
-                createTimeline(reputationInfo, mentionedInfo, timelineInfo);
-                window.clearInterval(interval);
-            }
-        }, 500);
-    }
     
 });
 
@@ -47,7 +36,7 @@ function useProfileApi(call, callback) {
             alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
         });
     } else {//This is for last 3 calls since all 3 need to be made for that component to be made. turns async off and shows a spinner in place of component till finished.
-        $.ajax({
+        return $.ajax({
             url : apiUrl + call,
             data : {
                 'access_token' : sessionStorage.getItem('accessToken'),
@@ -62,12 +51,11 @@ function useProfileApi(call, callback) {
         }).fail(function(data) {
             alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
         });
-        ;
     }
 }
 
 function createTimeline(repInfo, responses, timelineInfo) {
-    console.log(repInfo, responses, timelineInfo);
+   
 }
 
 function parseFavoritesInformation(data) {
