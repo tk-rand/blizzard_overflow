@@ -20,3 +20,8 @@ body {
 	margin-top: 5px;
 	line-height: 13px;
 }
+
+.center-content-container{
+	width: 1064px;
+	margin: 0 auto;
+}
