@@ -92,7 +92,7 @@ body {
 	color: white;
 	margin-top: 20px;
 }
-.tag-container a:hover{
+.tag-container:hover{
 	  background-color: rgba(0,174,255,0.7);
 }
 
