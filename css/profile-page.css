@@ -13,7 +13,7 @@ body {
 .service-welcome {
 	border-right: 1px solid white;
 	margin-right: 4px;
-	width: 165px;
+	width: 160px;
 	text-align: center;
 	float: left;
 	height: 13px;
@@ -29,9 +29,51 @@ body {
 	border: 1px solid #19547c;
 	text-align: center;
 	border-radius: 4px;
+	margin: 4px;
 }
 .badge-container a {
 	display: inline-block;
 	text-decoration: none;
 	color: inherit;
 }
+
+.content-container {
+	height: 300px;
+	margin: 10px 0 30px 0;
+}
+
+.content-container.call-to-epicness {
+	background-color: #19547c;
+	color: #ffffff;
+	border-top: 1px solid #00aeff;
+	border-bottom: 1px solid #00aeff;
+}
+
+.profile-half {
+	width: 50%;
+	float: left;
+}
+.search-half {
+	width: 50%;
+	float: left;
+}
+.profile-pic {
+	float: left;
+	margin: 30px;
+}
+
+.information {
+	margin-top: 30px;
+}
+
+.tag-cloud {
+	height: inherit;
+	width: 50%;
+	float: left;
+}
+.badges {
+	height: inherit;
+	width: 50%;
+	float: left;
+}
+
