@@ -6,8 +6,8 @@ $(document).ready(function(){
     $('#question-search').keypress(function(event){
         if(event.keyCode === 13 && event.target.value != ''){
             sessionStorage.setItem('query', event.target.value);
-            if(window.location.indexOf('search-results') == -1){
-                window.location = "http://tk-rand.github.io/blizzard_overflow/search-results.html";
+            if(window.location.href.indexOf('search-results') == -1){
+                window.location.href = "http://tk-rand.github.io/blizzard_overflow/search-results.html";
             }else{
                 useSearchApi(event.target.value, '');
             }
