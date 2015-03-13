@@ -42,12 +42,17 @@ function useProfileApi(call, callback) {
             alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
         });
     } else {//This is for last 3 calls since all 3 need to be made for that component to be made. turns async off and shows a spinner in place of component till finished.
+        //stackoverflow accepts time in unix ephoch milliseconds
+        var lastMonth = moment().subtract(1, 'months').unix();
+        var today = moment().unix();
         return $.ajax({
             url : apiUrl + call,
             data : {
                 'access_token' : sessionStorage.getItem('accessToken'),
                 'site' : 'stackoverflow',
-                'key' : sessionStorage.getItem('key')
+                'key' : sessionStorage.getItem('key'),
+                fromdate: lastMonth,
+                todate: today
             },
             beforeSend : function() {
                 //TODO load spinner in timeline area
@@ -125,7 +130,9 @@ function setProfileInformation(data) {
     $('#user-rep').text(profile.reputation);
     $('#profile-image').attr('src', profile.profile_image);
     $('#website').text(profile.website);
-    $('#accept-rate').text(profile.accept_rate);
+    $('#accept-rate').text(function(){
+      return profile.accept_rate > 0 ? profile.accept_rate : 0;  
+    });
     $('#member-for').text(moment.unix(profile.creation_date).format("dddd, MMMM Do YYYY"));
     $('#bronze-badge-count').text(profile.badge_counts.bronze);
     $('#silver-badge-count').text(profile.badge_counts.silver);
