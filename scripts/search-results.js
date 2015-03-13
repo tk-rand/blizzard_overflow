@@ -30,8 +30,8 @@ function createSearchResults(data){
     
     this.createSearchResult = function(title, link, tags, activityDate, score, ownerName, ownerLink, ownerImage, questionId){
         var display = "<div class='query-result-container' id='"+questionId+"'><div class='owner-info'><a href='"+ownerLink+"'>";
-        display += "<span>Created By: </span><img src='"+ownerImage+"' alt='image of user:"+ownerName+"' /><span>"+ownerName+"</span></a></div>";
-        display += "<div class='quesiton-score'><span>"+score+"</span><br/><span>votes</span></div><div class='question-info-container'>";
+        display += "<span class='created-by-span'>Created By: </span><img src='"+ownerImage+"' alt='image of user:"+ownerName+"' /><span class='owners-name'>"+ownerName+"</span>";
+        display += "</a></div><div class='quesiton-score'><span>"+score+"</span><br/><span>votes</span></div><div class='question-info-container'>";
         display += "<a href='"+link+"'><h3>"+title+"</h3></a><div class='question-info-bottom-half'><div class='question-tags-container'> </div>";
         display += "<span> Last active: &nbsp;"+ moment.unix(activityDate).format('MM-dd-YYYY')+"</span></div></div></div>";
         
@@ -39,7 +39,7 @@ function createSearchResults(data){
         
         tags.forEach(function(tag){
             var appendTo = $("#"+ questionId).find(".question-tags-container");
-            createFavoriteTag(tag, appendTo );
+            createFavoriteTag(tag, appendTo, 'questions-tag' );
         });  
     };
     

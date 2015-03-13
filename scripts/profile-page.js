@@ -102,7 +102,7 @@ function parseFavoritesInformation(data) {
         
         for(var i = 0; i < tags.length; i++){
             var appendTo =  $("#"+ questionId +" > .favorite-tag-container");
-            createFavoriteTag(tags[i], appendTo);
+            createFavoriteTag(tags[i], appendTo, 'favorites-tag');
         }    
     };
     
