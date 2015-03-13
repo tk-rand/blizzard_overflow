@@ -70,7 +70,14 @@ function createTimeline(repInfo, responses, timeLineInfo) {
    var timeItems = timeLineInfo.items.slice(0);
    
    this.createTimelineEvent = function(name, date, action, postId, commentId){
-       var display = "<div class='timeline-item'><div class='item-top-half'><span>"+ name + "</span><span>"+ date +"</span><span>"+ action +"</span></div>";
+       if(name.indexOf('vote') != -1){
+           name = "Reputation Change";
+       }else if(name.indexOf('commented') != -1){
+           name = "Commented on post: ";
+       }else if(name.indexOf('badge') != -1){
+           name = "Earned Badge for:";
+       }
+       var display = "<div class='timeline-item'><div class='item-top-half'><span>"+ name + "&nbsp; </span><span>"+ action +" &nbsp;</span><span>On: &nbsp;"+ moment.unix(date).format('MM-dd-YYYY') + "</span></div>";
        display += "<div class='item-bottom-half'><a href='http://stackoverflow.com/questions/"+postId+"/#"+commentId+"'><span> Post: http://stackoverflow.com/questions/"+postId+"/#"+commentId+"</span></a></div></div>";
        $('.timeline-events').append(display);
    };
