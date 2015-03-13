@@ -71,19 +71,21 @@ function createTimeline(repInfo, responses, timeLineInfo) {
    
    this.createTimelineEvent = function(name, date, action, postId, commentId){
        if(name.indexOf('vote') != -1){
-           name = "Reputation Change";
+           name = "Reputation Change: &nbsp; (+/-)";
        }else if(name.indexOf('commented') != -1){
            name = "Commented on post: ";
        }else if(name.indexOf('badge') != -1){
            name = "Earned Badge for:";
        }
+       
+       
        var display = "<div class='timeline-item'><div class='item-top-half'><span>"+ name + "&nbsp; </span><span>"+ action +" &nbsp;</span><span>On: &nbsp;"+ moment.unix(date).format('MM-dd-YYYY') + "</span></div>";
        display += "<div class='item-bottom-half'><a href='http://stackoverflow.com/questions/"+postId+"/#"+commentId+"'><span> Post: http://stackoverflow.com/questions/"+postId+"/#"+commentId+"</span></a></div></div>";
        $('.timeline-events').append(display);
    };
    
    for(var i = 0; i < repItems.length; i++){
-       this.createTimelineEvent(repItems[i].vote_type, repItems[i].on_date, repItems[i].reputation_change, repItems[i].post_id);
+       this.createTimelineEvent(repItems[i].vote_type, repItems[i].on_date, repItems[i].reputation_change, repItems[i].post_id, '');
    }
    for(var j = 0; j < resItems.length; j++){
        this.createTimelineEvent("Response to comment", resItems[j].creation_date, '', resItems[j].post_id, resItems[j].comment_id);

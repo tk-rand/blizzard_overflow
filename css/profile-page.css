@@ -123,10 +123,28 @@
 .timeline {
 	float: left;
 	width: 100%;
-	height: 300px;
 }
-.timeline hr{
-	margin-top: 150px;
-	width: 80%;
+.date-container {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	height: 1px;
+	width: 80%
+}
+.timeline-item {
+	background-color: rgba(39,56,76,0.9);
+	border: 1px solid #19547c;
+	width: 425px;
+	color: #ffffff;
+}
+.item-top-half {
+	margin-left: 10px;
+	margin-bottom: 5px;
+}
+.item-bottom-half {
+	margin-left: 10px;
+}
+.item-bottom-half a {
+	text-decoration: none;
+	color: #00aeff;
 }
 
