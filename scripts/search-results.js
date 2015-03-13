@@ -38,7 +38,7 @@ function createSearchResults(data){
         $('.search-results-container').append(display);
         
         tags.forEach(function(tag){
-            var appendTo = $("#"+ questionId +" > .question-tags-container");
+            var appendTo = $("#"+ questionId).find(".question-tags-container");
             createFavoriteTag(tag, appendTo );
         });  
     };
