@@ -4,13 +4,15 @@ $(document).ready(function(){
     $('#user-rep').text(profile.reputation);
     
     $('#question-search').keypress(function(event){
-        if(event.keyCode === 13){
-            console.log(target);
-            useSearchApi(event.target.value);    
+        if(event.keyCode === 13 && event.target.value != ''){
+            sessionStorage.setItem('query', event.target.value);
+            if(window.location.indexOf('search-results') == -1){
+                window.location = "http://tk-rand.github.io/blizzard_overflow/search-results.html";
+            }else{
+                useSearchApi(event.target.value, '');
+            }
         }
     });   
 });
 
-function useSearchApi(query){
-    console.log(query);
-}
+

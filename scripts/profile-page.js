@@ -52,7 +52,9 @@ function useProfileApi(call, callback) {
                 'site' : 'stackoverflow',
                 'key' : sessionStorage.getItem('key'),
                 fromdate: lastMonth,
-                todate: today
+                todate: today,
+                order: 'desc',
+                sort: 'creation'
             },
             beforeSend : function() {
                 //TODO load spinner in timeline area
