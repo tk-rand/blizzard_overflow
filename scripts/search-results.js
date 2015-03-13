@@ -30,10 +30,10 @@ function createSearchResults(data){
     
     this.createSearchResult = function(title, link, tags, activityDate, score, ownerName, ownerLink, ownerImage, questionId){
         var display = "<div class='query-result-container' id='"+questionId+"'><div class='owner-info'><a href='"+ownerLink+"'>";
-        display += "<img src'"+ownerImage+"' alt='image of user:"+ownerName+"' />";
-        display += "<span>"+ownerName+"</span></a></div><div class='quesiton-score'><span>"+score+"</span><br/><span>votes</span></div>";
-        display += "<div class='question-info-container'><a href='"+link+"'><h3>"+title+"<h3></a><div class='question-info-bottom-half'>";
-        display += "<div class='question-tags-container'> </div><span> Last active: &nbsp;"+ activityDate+"</span></div></div></div>";
+        display += "<img src'"+ownerImage+"' alt='image of user:"+ownerName+"' /><span>"+ownerName+"</span></a></div>";
+        display += "<div class='quesiton-score'><span>"+score+"</span><br/><span>votes</span></div><div class='question-info-container'>";
+        display += "<a href='"+link+"'><h3>"+title+"<h3></a><div class='question-info-bottom-half'><div class='question-tags-container'> </div>";
+        display += "<span> Last active: &nbsp;"+ moment.unix(activityDate).format('MM-dd-YYYY')+"</span></div></div></div>";
         
         $('.search-results-container').append(display);
         
