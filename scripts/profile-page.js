@@ -155,7 +155,7 @@ function parseBadgeInformation(data) {
 function setProfileInformation(data) {
     var profile = data.items[0];
     //save for later use on the search and question page
-    sessionStorage.setItem('user-profile', profile);
+    sessionStorage.setItem('user-profile', JSON.stringify(profile));
 
     $('#profile-image').attr('src', profile.profile_image);
     $('#website').text(profile.website);
