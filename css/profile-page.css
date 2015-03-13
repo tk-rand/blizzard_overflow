@@ -124,6 +124,10 @@
 	float: left;
 	width: 100%;
 }
+.timeline h2{
+	color: #ffffff;
+}
+
 .date-container {
 	margin-top: 25px;
 	margin-bottom: 25px;
@@ -135,6 +139,7 @@
 	border: 1px solid #19547c;
 	width: 425px;
 	color: #ffffff;
+	margin-bottom: 10px;
 }
 .item-top-half {
 	margin-left: 10px;

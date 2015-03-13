@@ -1,6 +1,12 @@
 body {
 	background: #0f2a48 url('http://bnetus-a.akamaihd.net/shop/static/images/backgrounds/bnet-background-1280.0H4LX.jpg') no-repeat center -200px;
 }
+header h3 {
+	float: left;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #ffffff;
+}
 
 .welcome-bar {
 	color: #8694a1;
@@ -21,7 +27,7 @@ body {
 	line-height: 13px;
 }
 
-.center-content-container{
+.center-content-container {
 	width: 1064px;
 	margin: 0 auto;
 }
