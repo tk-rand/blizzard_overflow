@@ -15,4 +15,9 @@ $(document).ready(function(){
     });   
 });
 
+    function createFavoriteTag(tag, appendTo){
+        var display = "<div class='favorites-tag'>"+tag+"</div>";
+        appendTo.append(display);
+    };
+
 

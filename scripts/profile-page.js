@@ -96,19 +96,14 @@ function createTimeline(repInfo, responses, timeLineInfo) {
 }
 
 function parseFavoritesInformation(data) {
-    var self = this;
     this.createFavorites = function(title, tags, questionId, link){
         var display = "<a href='"+ link +"'><div class='favorite-question' id="+ questionId +"><h3>"+ title +"</h3><hr /><div class='favorite-tag-container'></div></div></a>" ;    
         $('.favorites').append(display);
         
         for(var i = 0; i < tags.length; i++){
-            self.createFavoriteTag(tags[i], questionId);
+            var appendTo =  $("#"+ questionId +" > .favorite-tag-container");
+            createFavoriteTag(tags[i], appendTo);
         }    
-    };
-    
-    this.createFavoriteTag = function(tag, questionId){
-        var display = "<div class='favorites-tag'>"+tag+"</div>";
-        $("#"+ questionId +" > .favorite-tag-container").append(display);
     };
     
     for(var i = 0; i < data.items.length; i++){
