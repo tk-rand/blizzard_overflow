@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    var query = sessionStorage.getItem(query);
+    var query = sessionStorage.getItem('query');
+    console.log(query);
     if(query != '' && query != undefined){
         useSearchApi(query, '');
     }    
