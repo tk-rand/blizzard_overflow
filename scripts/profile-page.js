@@ -63,6 +63,28 @@ function useProfileApi(call, callback) {
 
 function createTimeline(repInfo, responses, timeLineInfo) {
    console.log(repInfo, responses, timeLineInfo);
+   
+   //clone the arrray of items out for easy use
+   var repItems = repInfo.items.slice(0);
+   var resItems = responses.items.slice(0);
+   var timeItems = timeLineInfo.items.slice(0);
+   
+   this.createTimelineEvent = function(name, date, action, postId, commentId){
+       var display = "<div class='timeline-item'><div class='item-top-half'><span>"+ name + "</span><span>"+ date +"</span><span>"+ action +"</span></div>";
+       display += "<div class='item-bottom-half'><a href='http://stackoverflow.com/questions/"+postId+"/#"+commentId+"'><span> Post: http://stackoverflow.com/questions/"+postId+"/#"+commentId+"</span></a></div></div>";
+       $('.timeline-events').append(display);
+   };
+   
+   for(var i = 0; i < repItems.length; i++){
+       this.createTimelineEvent(repItems[i].vote_type, repItems[i].on_date, repItems[i].reputation_change, repItems[i].post_id);
+   }
+   for(var j = 0; j < resItems.length; j++){
+       this.createTimelineEvent("Response to comment", resItems[j].creation_date, '', resItems[j].post_id, resItems[j].comment_id);
+   }
+   for(var k = 0; k < timeItems.length; k++){
+       this.createTimelineEvent(timeItems[k].timeline_type, timeItems[k].creation_date, timeItems[k].title, timeItems[k].post_id, '' );
+   }
+   
 }
 
 function parseFavoritesInformation(data) {
