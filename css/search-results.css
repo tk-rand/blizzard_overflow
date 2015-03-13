@@ -28,18 +28,18 @@
 	height: inherit;
 }
 
-.owner-info a:first-child {
+/*.owner-info a:first-child {
 	float: left;
 	margin-top: 10px;
 	margin-left: 5px;
 
-}
-.owner-info a:last-child {
+}*/
+/*.owner-info a:last-child {
 	float: left;
 	text-align: center;
 	margin-top: 23%;
     color: #00aeff;
-}
+}*/
 
 .owner-info img {
 	height: 64px;
