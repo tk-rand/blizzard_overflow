@@ -4,7 +4,6 @@ $(document).ready(function() {
         key : '2FgrF56*JKZBJ43DniQc7A((',
         channelUrl : 'http://tk-rand.github.io/blank.html',
         complete : function(data) {
-            sessionStorage.setItem('key', '2FgrF56*JKZBJ43DniQc7A((');
         }
     });
 
@@ -13,6 +12,7 @@ $(document).ready(function() {
             success : function(data) {
                 sessionStorage.setItem('accessToken', data.accessToken);
                 sessionStorage.setItem('experationDate', data.expirationDate);
+                sessionStorage.setItem('key', '2FgrF56*JKZBJ43DniQc7A((');
                 window.location = "http://tk-rand.github.io/blizzard_overflow/profile-page.html";
             },
             scope : ['write_access', 'private_info'],
