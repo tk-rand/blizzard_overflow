@@ -1,10 +1,10 @@
 $(document).ready(function() {
     var query = '';
     var tag = '';
-    if(sessionStorage.getItem('query') != undefined){
+    if (sessionStorage.getItem('query') != undefined) {
         var query = sessionStorage.getItem('query');
-    }else if(sessionStorage.getItem('tag') != undefined){
-        var tag = sessionStorage.getItem('tag'); 
+    } else if (sessionStorage.getItem('tag') != undefined) {
+        var tag = sessionStorage.getItem('tag');
     }
 
     if (query != '' && query != undefined) {
@@ -12,32 +12,32 @@ $(document).ready(function() {
         document.title += ' ' + query;
         $('#query-display').text(query);
         $('#question-search').val(query);
-    }else if (tag != '' && tag != undefined){
+    } else if (tag != '' && tag != undefined) {
         useSearchApi('', tag, '');
         document.title += ' ' + tag;
-        $('#query-display').text('Tag: ' +tag);
+        $('#query-display').text('Tag: ' + tag);
     }
-    
-    $('#sort-results').change(function(){
-       useSearchApi(query, tag, $('#sort-results').val()); 
+
+    $('#sort-results').change(function() {
+        useSearchApi(query, tag, $('#sort-results').val());
     });
 });
 
 function useSearchApi(query, tag, sortType) {
     sortType == '' ? 'activity' : sortType;
     var data = {
-            order : 'desc',
-            sort : sortType,
-            site : 'stackoverflow',
-            intitle : query,
-            tagged : tag
+        order : 'desc',
+        sort : sortType,
+        site : 'stackoverflow',
+        intitle : query,
+        tagged : tag
     };
-    
+
     // the SE.api chokes if intitle is there but an empty string so have to get rid of it if we are just searching by tag type
-    if(query == undefined || query == ''){
+    if (query == undefined || query == '') {
         delete data.intitle;
     }
-    
+
     $.ajax({
         url : 'https://api.stackexchange.com/2.2/search?',
         data : data
@@ -50,12 +50,13 @@ function useSearchApi(query, tag, sortType) {
 
 function createSearchResults(data) {
     $('.search-results-container').html(' ');
-     
-    this.createSearchResult = function(title, link, tags, activityDate, score, ownerName, ownerLink, ownerImage, questionId) {
+
+    this.createSearchResult = function(title, link, tags, activityDate, score, answerCount, viewCount, ownerName, ownerLink, ownerImage, questionId) {
         var display = "<div class='query-result-container' id='" + questionId + "'><div class='owner-info'><a href='" + ownerLink + "'>";
         display += "<span class='created-by-span'>Created By: </span><img src='" + ownerImage + "' alt='image of user:" + ownerName + "' /><span class='owners-name'>" + ownerName + "</span>";
         display += "</a></div><div class='quesiton-score'><span>" + score + "</span><br/><span>votes</span></div><div class='question-info-container'>";
-        display += "<a href='" + link + "'><h3>" + title + "</h3></a><div class='question-info-bottom-half'><div class='question-tags-container'> </div>";
+        display += "<a href='" + link + "'><h3>" + title + "</h3></a><div class='stats-count'><span>" + answerCount + "</span><br/><span>answers</span>";
+        display += "<span>" + viewCount + "</span><br/><span>views</span></div><div class='question-info-bottom-half'><div class='question-tags-container'> </div>";
         display += "<span> Last active: &nbsp;" + moment.unix(activityDate).format('MM-dd-YYYY') + "</span></div></div></div>";
 
         $('.search-results-container').append(display);
@@ -67,6 +68,6 @@ function createSearchResults(data) {
     };
 
     data.items.forEach(function(item) {
-        this.createSearchResult(item.title, item.link, item.tags, item.last_activity_date, item.score, item.owner.display_name, item.owner.link, item.owner.profile_image, item.question_id);
+        this.createSearchResult(item.title, item.link, item.tags, item.last_activity_date, item.score, item.answer_count, item.view_count, item.owner.display_name, item.owner.link, item.owner.profile_image, item.question_id);
     });
 }
