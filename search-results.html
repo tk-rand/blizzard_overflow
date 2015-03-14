@@ -29,6 +29,15 @@
 				<header>
 					<h2>Search results:</h2>
 					<span>Using query: <span id="query-display"> </span></span>
+					<label> Sort results by: 
+						<select id="sort-results">
+							<option value="activity">Activity</option>
+							<option value="votes">Votes</option>
+							<option value="creation">Creation</option>
+							<option value="relevance">Relevance</option>
+						</select>	
+					</label>
+					<input type="search" id="question-search" placeholder="search" />
 				</header>
 				<hr />
 				<div class="search-results-container">

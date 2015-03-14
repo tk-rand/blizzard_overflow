@@ -11,11 +11,16 @@ $(document).ready(function() {
         useSearchApi(query, '', '');
         document.title += ' ' + query;
         $('#query-display').text(query);
+        $('#question-search').value(query);
     }else if (tag != '' && tag != undefined){
         useSearchApi('', tag, '');
         document.title += ' ' + tag;
         $('#query-display').text('Tag: ' +tag);
     }
+    
+    $('#sort-results').onblur(function(){
+        console.log($(this).val());
+    });
 });
 
 function useSearchApi(query, tag, sortType) {
