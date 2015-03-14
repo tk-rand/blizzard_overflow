@@ -20,6 +20,11 @@ h2{
 	border-radius: 4px;
 	height: 22px;
 }
+
+.home-link{
+	text-decoration: none;
+}
+
 .service-welcome {
 	border-right: 1px solid white;
 	margin-right: 4px;
