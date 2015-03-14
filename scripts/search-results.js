@@ -11,15 +11,15 @@ $(document).ready(function() {
         useSearchApi(query, '', '');
         document.title += ' ' + query;
         $('#query-display').text(query);
-        $('#question-search').value(query);
+        $('#question-search').val(query);
     }else if (tag != '' && tag != undefined){
         useSearchApi('', tag, '');
         document.title += ' ' + tag;
         $('#query-display').text('Tag: ' +tag);
     }
     
-    $('#sort-results').onblur(function(){
-        console.log($(this).val());
+    $('#sort-results').change(function(){
+       useSearchApi(query, tag, $('#sort-results').val()); 
     });
 });
 
