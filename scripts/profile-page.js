@@ -113,7 +113,7 @@ function parseFavoritesInformation(data) {
 
 function setTagInformation(data) {
     this.createTag = function(name, count) {
-        var display = "<div class='tag-container'><a href=''>" + name + " &nbsp;&nbsp; (" + count + ")</a></div>";
+        var display = "<div class='tag-container'><a href='#'>" + name + " &nbsp;&nbsp; (" + count + ")</a></div>";
         $('.tag-cloud').append(display);
     };
 
