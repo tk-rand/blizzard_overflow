@@ -126,6 +126,13 @@ function setTagInformation(data) {
     for (var i = 0; i < length; i++) {
         this.createTag(data.items[i].name, data.items[i].count);
     }
+    setClickHandler();
+}
+
+function setClickHandler(){
+    $('.tag-cloud a').click(function(event){
+          console.log(event);  
+    });    
 }
 
 function parseBadgeInformation(data) {
