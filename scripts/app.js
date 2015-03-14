@@ -9,7 +9,7 @@ $(document).ready(function(){
             if(window.location.href.indexOf('search-results') == -1){
                 window.location.href = "http://tk-rand.github.io/blizzard_overflow/search-results.html";
             }else{
-                useSearchApi(event.target.value, '');
+                useSearchApi(event.target.value, '', '');
             }
         }
     });   

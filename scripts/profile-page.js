@@ -131,7 +131,11 @@ function setTagInformation(data) {
 
 function setClickHandler(){
     $('.tag-cloud a').click(function(event){
-          console.log(event);  
+         var value = event.target.text;
+         value = value.split(' ');
+         sessionStorage.removeItem('query');
+         sessionStorage.setItem('tag', value[i]);
+         window.location.href = "http://tk-rand.github.io/blizzard_overflow/search-results.html";   
     });    
 }
 

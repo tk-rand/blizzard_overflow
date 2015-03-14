@@ -1,9 +1,20 @@
 $(document).ready(function() {
-    var query = sessionStorage.getItem('query');
+    var query = '';
+    var tag = '';
+    if(sessionStorage.getItem('query') != undefined){
+        var query = sessionStorage.getItem('query');
+    }else if(sessionStorage.getItem('tag') != undefined){
+        var tag = sessionStorage.getItem('tag'); 
+    }
+
     if (query != '' && query != undefined) {
         useSearchApi(query, '', '');
         document.title += ' ' + query;
         $('#query-display').text(query);
+    }else if (tag != '' && tag != undefined){
+        useSearchApi('', tag, '');
+        document.title += ' ' + tag;
+        $('#query-display').text('Tag: ' +tag);
     }
 });
 
