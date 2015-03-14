@@ -13,11 +13,7 @@
 			<header>
 				<h3>Blizzard is Overflowing</h3>
 				<div class="welcome-bar">
-					<span class="service-welcome">
-						<a href="http://tk-rand.github.io/blizzard_overflow/profile-page.html" class="home-link">
-							Welcome, <span id="user-name"> </span>
-						</a> 
-					</span>
+					<span class="service-welcome"> <a href="http://tk-rand.github.io/blizzard_overflow/profile-page.html" class="home-link"> Welcome, <span id="user-name"> </span> </a> </span>
 					<span class="service-welcome">Reputation: <span id="user-rep"> </span></span>
 				</div>
 			</header>
@@ -29,19 +25,21 @@
 				<header>
 					<h2>Search results:</h2>
 					<span>Using query: <span id="query-display"> </span></span>
-					<label> Sort results by: 
-						<select id="sort-results">
-							<option value="activity">Activity</option>
-							<option value="votes">Votes</option>
-							<option value="creation">Creation</option>
-							<option value="relevance">Relevance</option>
-						</select>	
-					</label>
-					<input type="search" id="question-search" placeholder="search" />
+					<div class="sort-and-search">
+						<label> Sort results by:
+							<select id="sort-results">
+								<option value="activity">Activity</option>
+								<option value="votes">Votes</option>
+								<option value="creation">Creation</option>
+								<option value="relevance">Relevance</option>
+							</select> </label>
+						<input type="search" id="question-search" placeholder="search" />
+					</div>
+
 				</header>
 				<hr />
 				<div class="search-results-container">
-					
+
 				</div>
 			</div>
 		</div>
