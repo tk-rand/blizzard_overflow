@@ -55,8 +55,8 @@ function createSearchResults(data) {
         var display = "<div class='query-result-container' id='" + questionId + "'><div class='owner-info'><a href='" + ownerLink + "'>";
         display += "<span class='created-by-span'>Created By: </span><img src='" + ownerImage + "' alt='image of user:" + ownerName + "' /><span class='owners-name'>" + ownerName + "</span>";
         display += "</a></div><div class='quesiton-score'><span>" + score + "</span><br/><span>votes</span></div><div class='question-info-container'>";
-        display += "<a href='" + link + "'><h3>" + title + "</h3></a><div class='stats-count'><span>" + answerCount + "</span><br/><span>answers</span>";
-        display += "<span>" + viewCount + "</span><br/><span>views</span></div><div class='question-info-bottom-half'><div class='question-tags-container'> </div>";
+        display += "<a href='" + link + "'><h3>" + title + "</h3></a><div class='stats-count'><div><span>" + answerCount + "</span><br/><span>answers</span></div>";
+        display += "<div><span>" + viewCount + "</span><br/><span>views</span></div></div><div class='question-info-bottom-half'><div class='question-tags-container'> </div>";
         display += "<span> Last active: &nbsp;" + moment.unix(activityDate).format('MM-dd-YYYY') + "</span></div></div></div>";
 
         $('.search-results-container').append(display);

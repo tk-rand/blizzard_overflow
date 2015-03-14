@@ -33,17 +33,16 @@
 	float: left;
 	margin-top: 10px;
 	margin-left: 5px;
-
 }
 .owners-name {
 	float: left;
 	text-align: center;
 	margin-top: 23%;
-    color: #00aeff;
-    width: 44px;
-     white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	color: #00aeff;
+	width: 44px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .owner-info img {
@@ -70,18 +69,31 @@
 
 .question-info-container a {
 	float: left;
-	height: 50%;
+	height: 55%;
 	text-decoration: none;
 	color: white;
+	width: 610px;
 }
 .question-info-container a h3 {
-	width: 810px;
+	width: inherit;
 	margin: 20px 0 20px 0;
 	color: #00aeff
 }
 
+.stats-count {
+	float: left;
+	width: 200px;
+}
+.stats-count div {
+	float: left;
+	width: 90px;
+	text-align: center;
+	margin-top: 15px;
+	margin-left: 10px;
+}
+
 .question-info-bottom-half {
-	height: 50%;
+	height: 45%;
 	float: left;
 	width: 100%;
 }
@@ -107,9 +119,8 @@
 	float: left;
 	margin-top: 30px;
 }
-.sort-and-search{
+.sort-and-search {
 	display: inline-block;
-	float:right;
+	float: right;
 }
-
 
