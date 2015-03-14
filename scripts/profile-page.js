@@ -134,7 +134,7 @@ function setClickHandler(){
          var value = event.target.text;
          value = value.split(' ');
          sessionStorage.removeItem('query');
-         sessionStorage.setItem('tag', value[i]);
+         sessionStorage.setItem('tag', value[0]);
          window.location.href = "http://tk-rand.github.io/blizzard_overflow/search-results.html";   
     });    
 }
