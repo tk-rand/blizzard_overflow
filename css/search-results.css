@@ -40,6 +40,10 @@
 	text-align: center;
 	margin-top: 23%;
     color: #00aeff;
+    width: 44px;
+     white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .owner-info img {
