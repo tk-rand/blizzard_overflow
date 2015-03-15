@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 function useSearchApi(query, tag, sortType) {
     sortType == '' ? 'activity' : sortType;
-    document.title += ' ' + query;
+    document.title = 'Query: ' + query;
     $('#query-display').text(query);
     
     var data = {
@@ -36,7 +36,7 @@ function useSearchApi(query, tag, sortType) {
     // the SE.api chokes if intitle is there but an empty string so have to get rid of it if we are just searching by tag type
     if (query == undefined || query == '') {
         delete data.intitle;
-        document.title += ' ' + tag;
+        document.title = 'Query: ' + tag;
         $('#query-display').text('Tag: ' + tag);
     }
 
