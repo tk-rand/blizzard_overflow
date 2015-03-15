@@ -8,7 +8,7 @@
 }
 
 .query-result-container {
-	width: 85%;
+	width: 100%;
 	height: 129px;
 	float: left;
 	background-color: rgba(39,56,76,0.9);
@@ -131,5 +131,14 @@
 .tag-cloud-search-results{
 	float:left;
 	width:14%;
+}
+.tag-container{
+	background: transparent;
+  	border: 1px solid rgba(255,255,255,0.07);
+  	background-color: rgba(255,255,255,0.02);
+  	color: #fff;
+  	text-align: center;
+  	margin-bottom: 5px;
+  	border-radius: 5px;
 }
 

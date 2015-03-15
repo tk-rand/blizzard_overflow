@@ -81,5 +81,13 @@ function createTagCloud(tags){
     tags.forEach(function(tag){
         var display = "<div class='tag-container'>"+ tag +"</div>";
         $('.tag-cloud-search-results').append(display);    
-    });     
+    });
+    setClickHandlers();
+         
+}
+
+function setClickHandlers(){
+    $('div.tag-container').click(function(event){
+        console.log(event);    
+    });
 }
