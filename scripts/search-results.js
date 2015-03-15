@@ -80,6 +80,7 @@ function createSearchResults(data) {
 }
 
 function createTagCloud(tags){
+    $('.tag-cloud-search-results').html(' ');
     tags.forEach(function(tag){
         var display = "<div class='tag-container'>"+ tag +"</div>";
         $('.tag-cloud-search-results').append(display);    
