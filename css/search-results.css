@@ -123,4 +123,13 @@
 	display: inline-block;
 	float: right;
 }
+.search-results-half{
+	float:left;
+	width: 85%;
+}
+
+.tag-cloud-search-results{
+	float:left;
+	width:15%;
+}
 

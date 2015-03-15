@@ -49,8 +49,8 @@ function useSearchApi(query, tag, sortType) {
 }
 
 function createSearchResults(data) {
-    $('.search-results-container').html(' ');
-
+    $('.search-results-half').html(' ');
+    var allTags = [];
     this.createSearchResult = function(title, link, tags, activityDate, score, answerCount, viewCount, ownerName, ownerLink, ownerImage, questionId) {
         var display = "<div class='query-result-container' id='" + questionId + "'><div class='owner-info'><a href='" + ownerLink + "'>";
         display += "<span class='created-by-span'>Created By: </span><img src='" + ownerImage + "' alt='image of user:" + ownerName + "' /><span class='owners-name'>" + ownerName + "</span>";
@@ -62,6 +62,9 @@ function createSearchResults(data) {
         $('.search-results-container').append(display);
 
         tags.forEach(function(tag) {
+            if(allTags.indexOf(tag) == -1){
+                allTags.push(tag);
+            }
             var appendTo = $("#" + questionId).find(".question-tags-container");
             createFavoriteTag(tag, appendTo, 'questions-tag');
         });
@@ -70,4 +73,13 @@ function createSearchResults(data) {
     data.items.forEach(function(item) {
         this.createSearchResult(item.title, item.link, item.tags, item.last_activity_date, item.score, item.answer_count, item.view_count, item.owner.display_name, item.owner.link, item.owner.profile_image, item.question_id);
     });
+    
+    createTagCloud(allTags);
+}
+
+function createTagCloud(tags){
+    tags.forEach(function(tag){
+        var display = "<div class='tag-container'>"+ tag +"</div>";
+        $('.tag-cloud-search-results').append(display);    
+    });     
 }
