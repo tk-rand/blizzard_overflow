@@ -59,7 +59,7 @@ function createSearchResults(data) {
         display += "<div><span>" + viewCount + "</span><br/><span>views</span></div></div><div class='question-info-bottom-half'><div class='question-tags-container'> </div>";
         display += "<span> Last active: &nbsp;" + moment.unix(activityDate).format('MM-dd-YYYY') + "</span></div></div></div>";
 
-        $('.search-results-container').append(display);
+        $('.search-results-half').append(display);
 
         tags.forEach(function(tag) {
             if(allTags.indexOf(tag) == -1){
