@@ -10,12 +10,9 @@ $(document).ready(function() {
     if (query != '' && query != undefined) {
         useSearchApi(query, '', '');
         document.title += ' ' + query;
-        $('#query-display').text(query);
         $('#question-search').val(query);
     } else if (tag != '' && tag != undefined) {
         useSearchApi('', tag, '');
-        document.title += ' ' + tag;
-        $('#query-display').text('Tag: ' + tag);
     }
 
     $('#sort-results').change(function() {
@@ -25,6 +22,9 @@ $(document).ready(function() {
 
 function useSearchApi(query, tag, sortType) {
     sortType == '' ? 'activity' : sortType;
+    document.title += ' ' + query;
+    $('#query-display').text(query);
+    
     var data = {
         order : 'desc',
         sort : sortType,
@@ -36,6 +36,8 @@ function useSearchApi(query, tag, sortType) {
     // the SE.api chokes if intitle is there but an empty string so have to get rid of it if we are just searching by tag type
     if (query == undefined || query == '') {
         delete data.intitle;
+        document.title += ' ' + tag;
+        $('#query-display').text('Tag: ' + tag);
     }
 
     $.ajax({
@@ -88,6 +90,9 @@ function createTagCloud(tags){
 
 function setClickHandlers(){
     $('div.tag-container').click(function(event){
-        console.log(event);    
+        var tag = event.target.textContent;
+        sessionStorage.removeItem('query');
+        sessionStorage.setItem('tag', tag);
+        useSearchApi('', tag, '');   
     });
 }
