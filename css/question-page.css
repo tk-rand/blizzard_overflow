@@ -69,6 +69,8 @@
 	float: left;
 	width: 100%;
 	margin-top: 20px;
+	background-color: rgba(39,56,76,0.9);
+    color: #ffffff;
 }
 .answers-container hr {
 	float: left;
@@ -113,5 +115,19 @@
 .comment-creation-date {
 	float: right;
 	margin-right: 5px;
+}
+
+.individual-answer-container{
+  float: left;
+  border: 1px solid #19547c;	
+}
+.answer-body{
+  float: left;
+  width: 85%;
+  margin-left: 10px;	
+}
+
+.creation-date{
+	float: right;
 }
 
