@@ -1,8 +1,10 @@
 $(document).ready(function(){
     var profile = JSON.parse(sessionStorage.getItem('user-profile'));
-    $('#user-name').text(profile.display_name);
-    $('#user-rep').text(profile.reputation);
-    
+    if(profile !== null && profile != undefined){
+        $('#user-name').text(profile.display_name);
+        $('#user-rep').text(profile.reputation);   
+    }
+
     $('#question-search').keypress(function(event){
         if(event.keyCode === 13 && event.target.value != ''){
             sessionStorage.setItem('query', event.target.value);
