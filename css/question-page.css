@@ -150,7 +150,7 @@
   cursor: pointer;	
 } 
 
-.star-five .favorited{
+.star-five.favorited{
 	background-color: #FF0000;
 }
 
