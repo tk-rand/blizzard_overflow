@@ -69,10 +69,13 @@
 
 .question-info-container a {
 	float: left;
-	height: 55%;
+	height: 50%;
 	text-decoration: none;
 	color: white;
 	width: 550px;
+	overflow: hidden;
+  	text-overflow: ellipsis;
+  	margin-bottom: 10px;
 }
 .question-info-container a h3 {
 	width: inherit;

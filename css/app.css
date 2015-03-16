@@ -7,7 +7,7 @@ header h3 {
 	margin-bottom: 0px;
 	color: #ffffff;
 }
-h2{
+h2 {
 	color: #ffffff;
 	margin-top: 0px;
 }
@@ -21,7 +21,7 @@ h2{
 	height: 22px;
 }
 
-.home-link{
+.home-link {
 	text-decoration: none;
 	color: #8694a1;
 }
@@ -36,7 +36,7 @@ h2{
 	margin-top: 5px;
 	line-height: 13px;
 }
-.service-welcome.last-one{
+.service-welcome.last-one {
 	border: none;
 }
 
@@ -55,6 +55,14 @@ h2{
 	border-radius: 4px;
 	color: #ffffff;
 }
-.spinner-gif{
+.spinner-gif {
 	display: none;
+}
+.authenticate {
+	color: #FFFFFF;
+}
+
+.authenticate span {
+	display: block;
+	margin-bottom: 15px;
 }
