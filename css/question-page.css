@@ -1,75 +1,90 @@
-.tag-container{
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.07);
-  background-color: rgba(255,255,255,0.02);
-  color: #fff;
-  text-align: center;
-  margin-bottom: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 20%;
-  float: left;
-  margin-left: 10px;
+.tag-container {
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.07);
+	background-color: rgba(255,255,255,0.02);
+	color: #fff;
+	text-align: center;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 20%;
+	float: left;
+	margin-left: 10px;
 }
-.tag-container:hover{
+.tag-container:hover {
 	background-color: rgba(0,174,255,0.7);
 }
-.question-container{
+.question-container {
 	background-color: rgba(39,56,76,0.9);
-  	color: #fff;
-  	float: left;
-}
-
-.question-container header{
+	color: #fff;
 	float: left;
 }
 
-.question-container hr{
+.question-container header {
+	float: left;
+}
+
+.question-container hr {
 	float: left;
 	width: 100%;
 }
-.question-title{
+.question-title {
 	margin-left: 10px;
-  	float: left;
-  	width: 100%;
-  	height: 40px;
+	float: left;
+	width: 100%;
+	height: 40px;
+    margin-top: 15px;
 }
 
-.question-stats-column{
-	  background: transparent;
-  border: 1px solid rgba(255,255,255,0.07);
-  background-color: rgba(255,255,255,0.02);
-  float: left;
-  height: inherit;
-  width: 75px;
-  color: #ffffff;
-  margin-left: 10px;
+.question-stats-column {
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.07);
+	background-color: rgba(255,255,255,0.02);
+	float: left;
+	height: inherit;
+	width: 75px;
+	color: #ffffff;
+	margin-left: 10px;
 }
 
-.question-stats-box{
-  float: left;
-  height: 40px;
-  text-align: center;
-  width: inherit;
-  margin-bottom: 20px;	
+.question-stats-box {
+	float: left;
+	height: 40px;
+	text-align: center;
+	width: inherit;
+	margin-bottom: 20px;
 }
 
-.question-body{
-	  float: left;
-  margin-left: 20px;
+.question-body {
+	float: left;
+	margin-left: 20px;
 }
 
-#creation-date{
+#creation-date {
 	float: right;
 }
 
 .answers-container {
-  float: left;
-  width: 100%;
-  margin-top: 20px;	
+	float: left;
+	width: 100%;
+	margin-top: 20px;
 }
-.answers-container hr{
+.answers-container hr {
 	float: left;
 	width: 100%;
 }
+.back-button{
+	background-color: #000000;
+	color: #00aeff;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 10px;
+	height: 20px;
+	float: left;
+	line-height: 20px;
+	width: 150px;
+  	text-align: center;
+}
+
+
 

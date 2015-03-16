@@ -15,7 +15,7 @@ $(document).ready(function() {
 function useQuestionApi(questionId) {
     var data = {
         'site' : 'stackoverflow',
-        'filter' : '!)rCcH8Re8h1Fh)8)SGj)',
+        'filter' : '!LUcFBCs2EchoD)JH.(QXOy',
         'key' : sessionStorage.getItem('key'),
         'access_token' : sessionStorage.getItem('accessToken')
     };
