@@ -10,13 +10,17 @@ $(document).ready(function() {
         window.location.href = "http://tk-rand.github.io/blizzard_overflow/search-results.html";
     });
     $('#favorite-question').click(function(){
-        if($(this).hasClass('favorited')){
-            favoriteQuestion(questionId, true);
-            $(this).removeClass('favorited');   
-        }else{
-            favoriteQuestion(questionId, false);
-            $(this).addClass('favorited');    
-        }
+        
+        //The API freaks out if you try to favorite something more then once a second, so I stop that.
+        window.setTimeout(function(){
+            if($(this).hasClass('favorited')){
+                favoriteQuestion(questionId, true);
+                $(this).removeClass('favorited');   
+            }else{
+                favoriteQuestion(questionId, false);
+                $(this).addClass('favorited');    
+            }   
+        },1000);
     });
     
 });
