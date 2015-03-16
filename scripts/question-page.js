@@ -10,12 +10,12 @@ $(document).ready(function() {
         window.location.href = "http://tk-rand.github.io/blizzard_overflow/search-results.html";
     });
     $('#favorite-question').click(function(){
-        if($(this).hasClass('favorted')){
-            favorateQuestion(questionId, true);
-            $(this).removeClass('favorted');   
+        if($(this).hasClass('favorited')){
+            favoriteQuestion(questionId, true);
+            $(this).removeClass('favorited');   
         }else{
-            favorateQuestion(questionId, false);
-            $(this).addClass('favorted');    
+            favoriteQuestion(questionId, false);
+            $(this).addClass('favorited');    
         }
     });
     
@@ -41,7 +41,7 @@ function useQuestionApi(questionId) {
     });
 }
 
-function favorateQuestion(questionId, undo){
+function favoriteQuestion(questionId, undo){
     var url = apiURL + questionId + '/favorite';
     
     if(undo){
@@ -66,8 +66,11 @@ function favorateQuestion(questionId, undo){
 
 
 function createQuestion(data) {
-    console.log(data);
-
+    
+    if(data.items[0].favorited){
+        $("#favorite-question").addClass('favorited');    
+    }
+    
     $('.question-title h2').html(data.items[0].title);
     $('#question-score').text(data.items[0].score);
     $('#view-count').text(data.items[0].view_count);
