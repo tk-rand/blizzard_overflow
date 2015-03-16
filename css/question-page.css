@@ -45,6 +45,7 @@
 	width: 75px;
 	color: #ffffff;
 	margin-left: 10px;
+	margin-top: 20px;
 }
 
 .question-stats-box {
@@ -69,7 +70,7 @@
 	float: left;
 	width: 100%;
 	margin-top: 20px;
-	background-color: rgba(39,56,76,0.9);
+	
     color: #ffffff;
 }
 .answers-container hr {
@@ -103,6 +104,10 @@
 	width: 55%;
 }
 
+.individual-answer-container .comment-container{
+	margin-left: 20px;
+}
+
 .comment-score {
 	display: block;
 	float: left;
@@ -119,7 +124,8 @@
 
 .individual-answer-container{
   float: left;
-  border: 1px solid #19547c;	
+  border: 1px solid #19547c;
+  background-color: rgba(39,56,76,0.9);	
 }
 .answer-body{
   float: left;
