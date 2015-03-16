@@ -47,7 +47,7 @@ function createQuestion(data){
     });
     
     data.items[0].comments.forEach(function(comment){
-        var display = "<div class='comment-container'><span class='comment-score'>"+ comment.score +"</span>;
+        var display = "<div class='comment-container'><span class='comment-score'>"+ comment.score +"</span>";
         display += "<span class='comment-owner-name'>"+ comment.owner.display_name +"</span>";
         display += "<div class='comment-body'>"+ comment.body +"</div><span class='comment-creation-date'>"+ comment.creation_date +"</span></div>";
         
