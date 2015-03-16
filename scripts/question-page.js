@@ -49,11 +49,13 @@ function favorateQuestion(questionId, undo){
     }
     
     $.ajax({
+        type: 'POST',
         url: url,
         data:{
             'key' : sessionStorage.getItem('key'),
             'access_token' : sessionStorage.getItem('accessToken')    
-        }   
+        },
+        dataType: 'json'   
     }).done(function(data) {
         
     }).fail(function(data) {
