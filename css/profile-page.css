@@ -63,11 +63,11 @@
 
 .tag-cloud {
 	height: inherit;
-	width: 35%;
+	width: 28%;
 	float: left;
 }
 .favorites {
-	width: 65%;
+	width: 72%;
 	float: left;
 }
 
@@ -98,7 +98,7 @@
 .favorite-question {
 	background-color: rgba(39,56,76,0.9);
 	border: 1px solid #19547c;
-	width: 250px;
+	width: 238px;
 	float: left;
 	margin: 0 15px 15px 0;
 	height: 200px;
@@ -113,7 +113,6 @@
 	float: left;
 	width: 100%;
 }
-
 
 .date-container {
 	margin-top: 25px;
@@ -139,4 +138,11 @@
 	text-decoration: none;
 	color: #00aeff;
 }
+
+.search-box {
+	margin-left: 15px;
+	margin-top: 25px;
+}
+
+
 

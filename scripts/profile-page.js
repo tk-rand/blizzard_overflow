@@ -57,7 +57,7 @@ function useProfileApi(call, callback) {
                 sort: 'creation'
             },
             beforeSend : function() {
-                //TODO load spinner in timeline area
+                $('.spinner-gif').show();
             }
         });
     }
@@ -68,6 +68,9 @@ function createTimeline(repInfo, responses, timeLineInfo) {
    var repItems = repInfo.items.slice(0);
    var resItems = responses.items.slice(0);
    var timeItems = timeLineInfo.items.slice(0);
+   
+   //hide the spinner
+   $('.spinner-gif').hide();
    
    this.createTimelineEvent = function(name, date, action, postId, commentId){
        if(name.indexOf('vote') != -1){

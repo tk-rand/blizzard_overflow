@@ -36,6 +36,9 @@ h2{
 	margin-top: 5px;
 	line-height: 13px;
 }
+.service-welcome.last-one{
+	border: none;
+}
 
 .center-content-container {
 	width: 1064px;
@@ -44,11 +47,14 @@ h2{
 
 .favorites-tag {
 	background-color: #19547c;
-	width: 42%;
+	width: 41%;
 	float: left;
 	margin: 10px 9px;
 	text-align: center;
 	border: 1px solid rgba(255,255,255,0.07);
 	border-radius: 4px;
 	color: #ffffff;
+}
+.spinner-gif{
+	display: none;
 }
