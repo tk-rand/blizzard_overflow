@@ -71,7 +71,7 @@ function createAnswers(answers){
      answers.forEach(function(answer){
         var display = " <div class='question-stats-column'><div class='question-stats-box'><span>"+answer.score+"</span><br/><span>score</span>";
         display += "</div></div><div class='answer-body'>"+answer.body+"<span class='creation-date'>"+ moment.unix(answer.creation_date).format('MMM-DD-YYYY')+"</span></div>";
-        display += "<div class='answer-comments' id='"+answer.answer_id+"'></div>
+        display += "<div class='answer-comments' id='"+answer.answer_id+"'></div>";
         $('.answers-container').append(display);
         
         if(answer.comments !== undefined){
