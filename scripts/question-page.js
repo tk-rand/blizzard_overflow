@@ -4,13 +4,24 @@ $(document).ready(function() {
 
     //split is going to return an array of 2 parts I just want the second one
     questionId = questionId[1];
-
     useQuestionApi(questionId);
 
     $('.back-button').click(function() {
         window.location.href = "http://tk-rand.github.io/blizzard_overflow/search-results.html";
     });
+    $('#favorite-question').click(function(){
+        if($(this).hasClass('favorted')){
+            favorateQuestion(questionId, true);
+            $(this).removeClass('favorted');   
+        }else{
+            favorateQuestion(questionId, false);
+            $(this).addClass('favorted');    
+        }
+    });
+    
 });
+
+var apiURL = 'https://api.stackexchange.com/2.2/questions/';
 
 function useQuestionApi(questionId) {
     var data = {
@@ -21,15 +32,35 @@ function useQuestionApi(questionId) {
     };
 
     $.ajax({
-        url : 'https://api.stackexchange.com/2.2/questions/' + questionId,
+        url : apiURL + questionId,
         data : data
     }).done(function(data) {
         createQuestion(data);
     }).fail(function(data) {
         alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
     });
-    ;
 }
+
+function favorateQuestion(questionId, undo){
+    var url = apiURL + questionId + '/favorate';
+    
+    if(undo){
+        url += '/undo';
+    }
+    
+    $.ajax({
+        url: url,
+        data:{
+            'key' : sessionStorage.getItem('key'),
+            'access_token' : sessionStorage.getItem('accessToken')    
+        }   
+    }).done(function(data) {
+        
+    }).fail(function(data) {
+        alert("The following error occured: " + data.error_id + " \n and the server says: " + data.error_message);
+    });
+}
+
 
 function createQuestion(data) {
     console.log(data);
