@@ -53,7 +53,8 @@ function favorateQuestion(questionId, undo){
         url: url,
         data:{
             'key' : sessionStorage.getItem('key'),
-            'access_token' : sessionStorage.getItem('accessToken')    
+            'access_token' : sessionStorage.getItem('accessToken'),
+            'site': 'stackoverflow'    
         },
         dataType: 'json'   
     }).done(function(data) {
