@@ -38,7 +38,7 @@ function createQuestion(data) {
     $('#question-score').text(data.items[0].score);
     $('#view-count').text(data.items[0].view_count);
     $('.question-body').prepend(data.items[0].body);
-    $('#creation-date').text(moment.unix(data.items[0].creation_date).format('MMM-DD-YYYY'));
+    $('#creation-date').append(moment.unix(data.items[0].creation_date).format('MMM-DD-YYYY'));
 
     data.items[0].tags.forEach(function(tag) {
         var display = "<div class='tag-container'>" + tag + "</div>";

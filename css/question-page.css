@@ -58,6 +58,7 @@
 .question-body {
 	float: left;
 	margin-left: 20px;
+	width: 85%;
 }
 
 #creation-date {
@@ -95,7 +96,8 @@
 .comment-container{
   float: left;
   background-color: #19547c;
-  min-height: 54px;	
+  min-height: 54px;
+  margin-bottom: 10px;	
 }
 
 .comment-score{
