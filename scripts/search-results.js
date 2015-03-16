@@ -59,7 +59,7 @@ function createSearchResults(data) {
         display += "</a></div><div class='quesiton-score'><span>" + score + "</span><br/><span>votes</span></div><div class='question-info-container'>";
         display += "<a href='" + link + "'><h3>" + title + "</h3></a><div class='stats-count'><div><span>" + answerCount + "</span><br/><span>answers</span></div>";
         display += "<div><span>" + viewCount + "</span><br/><span>views</span></div></div><div class='question-info-bottom-half'><div class='question-tags-container'> </div>";
-        display += "<span> Last active: &nbsp;" + moment.unix(activityDate).format('MM-dd-YYYY') + "</span></div></div></div>";
+        display += "<span> Last active: &nbsp;" + moment.unix(activityDate).format('MM-DD-YYYY') + "</span></div></div></div>";
 
         $('.search-results-half').append(display);
 

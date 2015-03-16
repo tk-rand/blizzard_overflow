@@ -38,7 +38,7 @@ function createQuestion(data) {
     $('#question-score').text(data.items[0].score);
     $('#view-count').text(data.items[0].view_count);
     $('.question-body').prepend(data.items[0].body);
-    $('#creation-date').text(moment.unix(data.items[0].creation_date).format('MM-Do-YYYY'));
+    $('#creation-date').text(moment.unix(data.items[0].creation_date).format('MMM-DD-YYYY'));
 
     data.items[0].tags.forEach(function(tag) {
         var display = "<div class='tag-container'>" + tag + "</div>";
@@ -50,7 +50,7 @@ function createQuestion(data) {
         data.items[0].comments.forEach(function(comment) {
             var display = "<div class='comment-container'><span class='comment-score'>" + comment.score + "</span>";
             display += "<span class='comment-owner-name'>" + comment.owner.display_name + "</span>";
-            display += "<div class='comment-body'>" + comment.body + "</div><span class='comment-creation-date'>" + comment.creation_date + "</span></div>";
+            display += "<div class='comment-body'>" + comment.body + "</div><span class='comment-creation-date'>" + moment.unix(comment.creation_date).fromNow() + "</span></div>";
 
             $('.question-comments').append(display);
         });

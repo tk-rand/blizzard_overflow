@@ -86,5 +86,31 @@
   	text-align: center;
 }
 
+.question-comments{
+	  float: left;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.comment-container{
+  float: left;
+  background-color: #19547c;
+  min-height: 54px;	
+}
+
+.comment-score{
+  display: block;
+  float: left;
+  height: 54px;
+  width: 10px;
+  margin-right: 10px;
+  margin-left: 5px;	
+}
+
+.comment-creation-date{
+	float:right;
+	margin-right: 5px;
+}
+
 
 
