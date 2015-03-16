@@ -45,15 +45,38 @@ function createQuestion(data) {
         $('.question-tags').append(display);
     });
 
-    //the comments array can come back empty
+    //the comments array could be blank
     if (data.items[0].comments !== undefined) {
-        data.items[0].comments.forEach(function(comment) {
+        var appendTo = $('.question-comments');
+        createComments(data.items[0].comments, appendTo);
+    }
+    //answers array could be blank
+    if(data.items[0].answers !== undefined){
+        createAnswers(data.items[0].answers);    
+    }
+    
+}
+
+function createComments(comments, appendTo){
+        comments.forEach(function(comment) {
             var display = "<div class='comment-container'><span class='comment-score'>" + comment.score + "</span>";
             display += "<span class='comment-owner-name'>" + comment.owner.display_name + "</span>";
             display += "<div class='comment-body'>" + comment.body + "</div><span class='comment-creation-date'>" + moment.unix(comment.creation_date).fromNow() + "</span></div>";
 
-            $('.question-comments').append(display);
-        });
-    }
+            appendTo.append(display);
+        });    
+}
 
+function createAnswers(answers){
+     answers.forEach(function(answer){
+        var display = " <div class='question-stats-column'><div class='question-stats-box'><span>"+answer.score+"</span><br/><span>score</span>";
+        display += "</div></div><div class='answer-body'>"+answer.body+"<span class='creation-date'>"+ moment.unix(answer.creation_date).format('MMM-DD-YYYY')+"</span></div>";
+        display += "<div class='answer-comments' id='"+answer.answer_id+"'></div>
+        $('.answers-container').append(display);
+        
+        if(answer.comments !== undefined){
+            var appendTo = $('#'+answer.answer_id);
+            createComments(answer.comments, appendTo);
+        }    
+     });              
 }
