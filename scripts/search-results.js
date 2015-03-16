@@ -73,7 +73,8 @@ function createSearchResults(data) {
     };
 
     data.items.forEach(function(item) {
-        this.createSearchResult(item.title, item.link, item.tags, item.last_activity_date, item.score, item.answer_count, item.view_count, item.owner.display_name, item.owner.link, item.owner.profile_image, item.question_id);
+        var link = "http://tk-rand.github.io/blizzard_overflow/question-page#"+ item.question_id;
+        this.createSearchResult(item.title, link, item.tags, item.last_activity_date, item.score, item.answer_count, item.view_count, item.owner.display_name, item.owner.link, item.owner.profile_image, item.question_id);
     });
     
     createTagCloud(allTags);
