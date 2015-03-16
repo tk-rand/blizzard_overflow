@@ -42,7 +42,7 @@ function useQuestionApi(questionId) {
 }
 
 function favorateQuestion(questionId, undo){
-    var url = apiURL + questionId + '/favorate';
+    var url = apiURL + questionId + '/favorite';
     
     if(undo){
         url += '/undo';

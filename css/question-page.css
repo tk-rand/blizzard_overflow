@@ -142,9 +142,16 @@
 .answer-comments{
 	margin-left: 20px;
 }
+.star-five{
+  height: 20px;
+  width: 20px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  cursor: pointer;	
+} 
 
-.favorted{
-	color: #FF0000;
+.star-five .favorted{
+	background-color: #FF0000;
 }
 
 
