@@ -33,7 +33,10 @@ function useQuestionApi(questionId) {
 
     $.ajax({
         url : apiURL + questionId,
-        data : data
+        data : data,
+        beforeSend: function(){
+            $('.spinner-gif').show();
+        }
     }).done(function(data) {
         createQuestion(data);
     }).fail(function(data) {
@@ -70,6 +73,7 @@ function createQuestion(data) {
     if(data.items[0].favorited){
         $("#favorite-question").addClass('favorited');    
     }
+    $('.spinner-gif').hide();
     
     $('.question-title h2').html(data.items[0].title);
     $('#question-score').text(data.items[0].score);

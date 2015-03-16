@@ -42,7 +42,10 @@ function useSearchApi(query, tag, sortType) {
 
     $.ajax({
         url : 'https://api.stackexchange.com/2.2/search?',
-        data : data
+        data : data,
+        beforeSend: function(){
+            $('.spinner-gif').show();
+        }
     }).done(function(data) {
         createSearchResults(data);
     }).fail(function(data) {
@@ -51,6 +54,7 @@ function useSearchApi(query, tag, sortType) {
 }
 
 function createSearchResults(data) {
+    $('.spinner-gif').hide();
     $('.search-results-half').html(' ');
     var allTags = [];
     this.createSearchResult = function(title, link, tags, activityDate, score, answerCount, viewCount, ownerName, ownerLink, ownerImage, questionId) {
